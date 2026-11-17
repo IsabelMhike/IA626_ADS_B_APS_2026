@@ -1,0 +1,60 @@
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADS-B API Response Schemas",
+  "type": "object",
+  "properties": {
+    "getData": {
+      "type": "object",
+      "properties": {
+        "req": { "type": "string" },
+        "code": { "type": "integer" },
+        "msg": { "type": "string" },
+        "sqltime": { "type": "number" },
+        "results": {
+          "type": "array",
+          "maxItems": 500,
+          "items": { "type": "object" }
+        },
+        "num_results": { "type": "integer" }
+      },
+      "required": ["req", "code", "msg", "sqltime"]
+    },
+
+"countInPolygon": {
+  "type": "object",
+  "properties": {
+    "req": { "type": "string" },
+    "code": { "type": "integer" },
+    "msg": { "type": "string" },
+    "sqltime": { "type": "number" },
+    "count": { "type": "integer" }
+  },
+  "required": ["req", "code", "msg", "sqltime"]
+},
+
+"getAvgSpeedByFlight": {
+  "type": "object",
+  "properties": {
+    "req": { "type": "string" },
+    "code": { "type": "integer" },
+    "msg": { "type": "string" },
+    "sqltime": { "type": "number" },
+    "results": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "properties": {
+          "flight_num": { "type": ["string", "null"] },
+          "avg_speed": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "num_results": { "type": "integer" }
+  },
+  "required": ["req", "code", "msg", "sqltime"]
+}
+
+  }
+}
